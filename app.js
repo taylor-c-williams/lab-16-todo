@@ -1,8 +1,5 @@
-// import functions and grab DOM elements
+// window.location = `./todos/index.html?username=${userName}`;
+// });
 
-// initialize global state
-
-// set event listeners 
-  // get user input
-  // use user input to update state 
-  // update DOM to reflect the new state
+// const data = new URLSearchParams(window.location.search);
+// const questId = data.get('id')
