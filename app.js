@@ -11,7 +11,7 @@ loginEl.addEventListener('submit', (e) => {
 
   if (user.password === loginPass && user.username === loginUsername) 
   {
-    window.location = `./tasks/tasks.html`;
+    window.location = `./tasks/index.html`;
     alert('right!');
   }
   else {

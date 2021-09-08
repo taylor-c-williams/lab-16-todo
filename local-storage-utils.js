@@ -24,11 +24,10 @@ export function setTasks(tasks){
 export function addTask(message){
     const tasks = getTasks();
     const newTask = {
-        id: Math.floor(math.random()* 10000),
+        id: Math.ceil(Math.random()* 10000),
         task: message,
         completed: false,
     };
-
     tasks.push(newTask);
     setTasks(tasks);
 }
