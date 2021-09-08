@@ -40,3 +40,10 @@ export function completeTask(id){
     setTasks(tasks);
 }
 
+export function createUser(formData) {
+    const newUser = { username:formData.get('new-username-input'), 
+        password:formData.get('new-pass-input'), 
+        tasks: [] }
+    setUser(newUser);
+ }
+
