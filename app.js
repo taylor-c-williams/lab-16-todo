@@ -13,13 +13,18 @@ const passInput = document.getElementById('pass-input');
 loginEl.addEventListener('submit', (e) => {
   e.preventDefault();
   const loginData = new FormData(loginEl);
+  
+  const loginUsername = loginData.get('username-input');
+  const loginPass = loginData.get('pass-input');
   const user = getUser();
-  const userName = user.find(user => user.username === usernameInput);
-  const userPass = user.find(user => user.password === passInput);
 
-  if (userPass === user.password && userName === user.username) 
+  if (user.password === loginPass && user.username === loginUsername) 
   {
-    window.location = `./todos/index.html?username=${userName}`;
+    // window.location = `./todos/index.html?username=${userName}`;
+    alert('right!');
+  }
+  else {
+    alert('wrong!');
   }
     
   })
