@@ -6,11 +6,14 @@ const taskList = document.getElementById('task-list');
 const user = getUser();
 const username = user.username;
 const tasks = getTasks();
-const tasksOnly = tasks.slice(0);
+
+tasks.forEach(task => console.log(task.task));
+const newArray = tasks.filter(tasks => tasks.task = true);
+console.log(newArray);
 
 
 header.textContent = `${username}'s To Do List!`;
-taskList.textContent = tasksOnly;
+taskList.textContent = tasks.task;
 
 const newTaskEl = document.getElementById('newTask');
 newTaskEl.addEventListener('submit', (e) => {
