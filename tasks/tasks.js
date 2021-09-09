@@ -7,6 +7,15 @@ const username = user.username;
 const tasks = getTasks();
 const taskItem = document.getElementById("new-task-item");
 
+
+tasks.forEach((task) => console.log(task.task));
+
+
+let allTasks = [];
+for (let i = 0; i < tasks.length; i++) {
+  allTasks.push([tasks[i].task]);
+}
+
 const newTaskEl = document.getElementById("newTask");
 newTaskEl.addEventListener(
   "submit",
@@ -19,14 +28,22 @@ newTaskEl.addEventListener(
     taskList.innerHTML += "<li>" + taskItem.value + "</li>";
     taskItem.value = "";
   },
-  false
+true
 );
 
-tasks.forEach((task) => console.log(task.task));
-let allTasks = [];
-for (let i = 0; i < tasks.length; i++) {
-  allTasks.push([tasks[i].task]);
+let newLi = document.createElement('li');
+
+if(!allTasks){
+  newLi.style.visibility = none; 
+}else{
+  for (let i = 0; i < allTasks.length; i++) {
+  newLi.append(allTasks[i]);
+  }
 }
 
+
+
 header.textContent = `${username}'s To Do List!`;
-taskList.textContent = allTasks;
+taskList.textContent = newLi.textContent ; 
+
+console.log(allTasks);
