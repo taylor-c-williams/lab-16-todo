@@ -13,18 +13,15 @@
 <body>
     <main>
 <!-- Login -->
-Log in
-<form id ="login">
-    <input type="text" id="username-input" name="username-input" required placeholder="Username" title="Username">
-    <input type="password" id="pass-input" name="pass-input" minlength="8" required placeholder="password">
-    <input type="submit" value="Sign In">
+Create an Account
+<form id ="create-user">
+    <input type="text" id="new-username-input" name="new-username-input" required placeholder="Username" title="Username">
+    <input type="password" name="new-pass-input" id="new-pass-input" minlength="8" required placeholder="password">
+    <input type="submit" value="Sign Up">
 </form>
-
-<!-- Sign up Link -->
-New User? <a href="./signup.html">Sign Up</a>
-
+<a href="./index.html">Back</a>
     </main>
-    <script type="module" src="./app.js"></script>
+    <script type="module" src="./signup.js"></script>
 </body>
 
 </html>

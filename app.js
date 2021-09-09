@@ -1,8 +1,21 @@
-// import functions and grab DOM elements
+import { getUser } from "./local-storage-utils.js";
 
-// initialize global state
+const loginEl = document.getElementById('login');
 
-// set event listeners 
-  // get user input
-  // use user input to update state 
-  // update DOM to reflect the new state
+loginEl.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const loginData = new FormData(loginEl);
+  const loginUsername = loginData.get('username-input');
+  const loginPass = loginData.get('pass-input');
+  const user = getUser();
+
+  if (user.password === loginPass && user.username === loginUsername) 
+  {
+    window.location = `./tasks/index.html`;
+    alert('right!');
+  }
+  else {
+    alert('wrong!');
+  }
+    
+  })
