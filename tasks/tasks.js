@@ -13,37 +13,22 @@ newTaskEl.addEventListener(
   "submit",
   (e) => {
     e.preventDefault();
-    // const newTaskData = new FormData(newTaskEl);
-    // const newTask = newTaskData.get("new-task");
     if (taskItem.value.length < 1) return;
     addTask(taskItem.value);
     taskList.innerHTML += "<li>" + taskItem.value + "</li>";
     taskItem.value = "";
   },
-true
 );
 
-
-tasks.forEach((task) => console.log(task.task));
 let allTasks = [];
-let newLi = allTasks.task;
 
 for (let i = 0; i < tasks.length; i++) {
   allTasks.push([tasks[i].task]);
 }
-
-if(!allTasks){
-  newLi.style.visibility = none; 
-}else{
   for (let i = 0; i < allTasks.length; i++) {
-  // newLi.append(allTasks[i]);
   taskList.innerHTML += "<li>" + allTasks[i] + "</li>";
   }
-}
-
-
 
 header.textContent = `${username}'s To Do List!`;
 
-
-console.log(allTasks);
+// console.log(allTasks);
