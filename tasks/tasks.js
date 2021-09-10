@@ -1,49 +1,32 @@
-import { getUser, getTasks, addTask } from "../local-storage-utils.js";
+import { getUser, getTasks, addTask } from '../local-storage-utils.js';
+import { render} from './render-task-utils.js';
 
-const header = document.getElementById("header");
-const taskList = document.getElementById("task-list");
+const taskList = document.getElementById('task-list');
+const header = document.getElementById('header');
+const taskItem = document.getElementById('new-task-item');
+const newTaskEl = document.getElementById('newTask');
+const noTasks = document.getElementById('no-tasks');
 const user = getUser();
-const username = user.username;
 const tasks = getTasks();
-const taskItem = document.getElementById("new-task-item");
+const username = user.username;
 
+render();
 
-const newTaskEl = document.getElementById("newTask");
 newTaskEl.addEventListener(
-  "submit",
-  (e) => {
-    e.preventDefault();
-    // const newTaskData = new FormData(newTaskEl);
-    // const newTask = newTaskData.get("new-task");
-    if (taskItem.value.length < 1) return;
-    addTask(taskItem.value);
-    taskList.innerHTML += "<li>" + taskItem.value + "</li>";
-    taskItem.value = "";
-  },
-true
+    'submit',
+    (e) => {
+        e.preventDefault();
+        if (taskItem.value.length < 1) return;
+        addTask(taskItem.value);
+        taskItem.value = '';
+    },
+    true
 );
-
-
-tasks.forEach((task) => console.log(task.task));
-let allTasks = [];
-let newLi = allTasks.task;
-
-for (let i = 0; i < tasks.length; i++) {
-  allTasks.push([tasks[i].task]);
-}
-
-if(!allTasks){
-  newLi.style.visibility = none; 
-}else{
-  for (let i = 0; i < allTasks.length; i++) {
-  // newLi.append(allTasks[i]);
-  taskList.innerHTML += "<li>" + allTasks[i] + "</li>";
-  }
-}
-
-
 
 header.textContent = `${username}'s To Do List!`;
 
 
-console.log(allTasks);
+
+if (tasks){
+  noTasks.style.visibility = 'hidden';
+}
