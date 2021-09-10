@@ -11,8 +11,8 @@ export function setUser(user){
 }
 
 export function getTasks(){
-    const { tasks } = getUser();
-    return tasks;
+    const user = getUser();
+    return user.tasks;
 }
 
 export function setTasks(tasks){
@@ -24,7 +24,7 @@ export function setTasks(tasks){
 export function addTask(message){
     const tasks = getTasks();
     const newTask = {
-        id: Math.ceil(Math.random()* 10000),
+        id: Math.ceil(Math.random() * 10000),
         task: message,
         completed: false,
     };
@@ -39,10 +39,17 @@ export function completeTask(id){
     setTasks(tasks);
 }
 
+export function unCompleteTask(id){
+    const tasks = getTasks();
+    const taskMatch = tasks.find(task => task.id === id);
+    taskMatch.completed = false;
+    setTasks(tasks);
+}
+
 export function createUser(formData) {
     const newUser = { username:formData.get('new-username-input'), 
         password:formData.get('new-pass-input'), 
-        tasks: [] }
+        tasks: [] };
     setUser(newUser);
- }
+}
 
