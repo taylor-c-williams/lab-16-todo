@@ -1,29 +1,43 @@
+import { completeTask, unCompleteTask, getTasks } from '../local-storage-utils.js';
 
-function renderTask(arrayItem) {
+const taskList = document.getElementById('task-list');
+
+export function renderTask(listOfTasks) {
     const li = document.createElement('li');
-    const btn = document.createElement('button');
-  
-    li.append(btn);
-    btn.classList.add('tasks');
-    btn.setAttribute('id', arrayItem.id);
-    btn.textContent = arrayItem.tasks;
-  
-    btn.addEventListener('click', () => {
-        completeToDos(arrayItem.id);
-        btn.style.textDecoration = 'line-through';
+    const checkbox = document.createElement('input');
+    const span = document.createElement('span');
+
+    li.append(span);
+    span.setAttribute('id', listOfTasks.id);
+    span.textContent = listOfTasks.task;
+    
+    li.append(checkbox);
+    checkbox.setAttribute('id', listOfTasks.id);
+    checkbox.setAttribute('type', 'checkbox');
+    
+    checkbox.addEventListener('change', (event) => {
+        if (event.currentTarget.checked) {
+            completeTask (listOfTasks.id);
+            span.style.textDecoration = 'line-through';
+        } else if (!event.currentTarget.checked) {
+            unCompleteTask(listOfTasks.id);
+            span.style.textDecoration = 'none';
+        }
     });
-    if (arrayItem.completed) {
-        btn.style.textDecoration = 'line-through';
-    }  
+
+    if (listOfTasks.completed) {
+        span.style.textDecoration = 'line-through';
+        checkbox.checked = true;
+
+    } else if (!listOfTasks.completed){
+        span.style.textDecoration = 'none';
+    }
   
     return li;
 }
-function callRender() {
-  const allTasks = getTasks();
-    for (let tasks of allTasks) {
-        const liItem = renderTodo(tasks);
-        tasks.append(liItem);
-    }
-}
 
-callRender()
+export function render(){
+    const tasks = getTasks();
+    for (let task of tasks){
+        const liItem = renderTask(task);
+        taskList.append(liItem);}}
