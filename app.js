@@ -9,13 +9,12 @@ loginEl.addEventListener('submit', (e) => {
   const loginPass = loginData.get('pass-input');
   const user = getUser();
 
-  if (user.password === loginPass && user.username === loginUsername) 
+  if (user.password == loginPass && user.username === loginUsername) 
   {
     window.location = `./tasks/index.html`;
-    alert('right!');
   }
   else {
-    alert('wrong!');
+    alert('incorrect login');
   }
     
   })

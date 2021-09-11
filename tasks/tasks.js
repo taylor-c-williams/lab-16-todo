@@ -18,15 +18,18 @@ newTaskEl.addEventListener(
         e.preventDefault();
         if (taskItem.value.length < 1) return;
         addTask(taskItem.value);
+        taskList.textContent = '';
+        render();
         taskItem.value = '';
+        taskItem.focus();
     },
-    true
+    false
 );
 
 header.textContent = `${username}'s To Do List!`;
 
 
 
-if (tasks){
+if (tasks = true ){
   noTasks.style.visibility = 'hidden';
 }
