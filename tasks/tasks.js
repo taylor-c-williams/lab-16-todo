@@ -1,5 +1,5 @@
 import { getUser, getTasks, addTask } from '../local-storage-utils.js';
-import { render, renderTask} from './render-task-utils.js';
+import { render} from './render-task-utils.js';
 
 const taskList = document.getElementById('task-list');
 const header = document.getElementById('header');
@@ -18,10 +18,12 @@ newTaskEl.addEventListener(
         e.preventDefault();
         if (taskItem.value.length < 1) return;
         addTask(taskItem.value);
+        taskList.textContent = '';
+        render();
         taskItem.value = '';
+        taskItem.focus();
     },
-    render()
-
+    false
 );
 
 header.textContent = `${username}'s To Do List!`;
