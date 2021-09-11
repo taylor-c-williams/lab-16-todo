@@ -30,6 +30,6 @@ header.textContent = `${username}'s To Do List!`;
 
 
 
-if (tasks){
+if (tasks = true ){
   noTasks.style.visibility = 'hidden';
 }
