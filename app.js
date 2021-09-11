@@ -18,3 +18,12 @@ loginEl.addEventListener('submit', (e) => {
   }
     
   })
+
+//   export function createQuest(quest) {
+//     const link = document.createElement('a');
+//     link.classList.add('userLogin');
+//     link.href = `../task/?id=${user.id}`;
+
+//     link.textContent = quest.title;
+//     return link;
+// }
