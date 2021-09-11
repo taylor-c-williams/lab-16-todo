@@ -24,7 +24,7 @@ export function setTasks(tasks){
 export function addTask(message){
     const tasks = getTasks();
     const newTask = {
-        id: Math.ceil(Math.random()* 10000),
+        id: Math.ceil(Math.random() * 10000),
         task: message,
         completed: false,
     };
@@ -42,7 +42,7 @@ export function completeTask(id){
 export function createUser(formData) {
     const newUser = { username:formData.get('new-username-input'), 
         password:formData.get('new-pass-input'), 
-        tasks: [] }
+        tasks: [] };
     setUser(newUser);
- }
+}
 

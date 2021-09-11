@@ -1,5 +1,5 @@
 import { getUser, getTasks, addTask } from '../local-storage-utils.js';
-import { render} from './render-task-utils.js';
+import { render } from './render-task-utils.js';
 
 const taskList = document.getElementById('task-list');
 const header = document.getElementById('header');
@@ -28,8 +28,6 @@ newTaskEl.addEventListener(
 
 header.textContent = `${username}'s To Do List!`;
 
-
-
-if (tasks = true ){
-  noTasks.style.visibility = 'hidden';
+if (tasks = true){
+    noTasks.style.visibility = 'hidden';
 }
