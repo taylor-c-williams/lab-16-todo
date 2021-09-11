@@ -41,4 +41,6 @@ input {
     margin:10px;
     font-size:1.25em;
     font-family: 'Poppins', sans-serif;
+    background-color: white;
+    border:1px dotted grey;
 } 
