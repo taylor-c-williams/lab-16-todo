@@ -39,6 +39,13 @@ export function completeTask(id){
     setTasks(tasks);
 }
 
+export function unCompleteTask(id){
+    const tasks = getTasks();
+    const taskMatch = tasks.find(task => task.id === id);
+    taskMatch.completed = false;
+    setTasks(tasks);
+}
+
 export function createUser(formData) {
     const newUser = { username:formData.get('new-username-input'), 
         password:formData.get('new-pass-input'), 
